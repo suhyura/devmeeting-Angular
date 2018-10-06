@@ -2,4 +2,5 @@
 <div style="text-align:center">
     <input #textbox type="text" (change)="filterCollection(textbox)" >
     <product-list [products] = "products"></product-list>
+    <pre>{{ products  | json }}</pre>
 </div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Productrepository } from '../productrepository.component';
+import { ProductService } from '../productService';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +9,16 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-filterValue: string  = "";
+  productsForFilter$;
+  filterValue: string  = "";
 
-productsForFilter: Product[] = [
-  {name: 'apple', rank: 5},
-  {name: 'paple', rank: 10},
-  {name: 'maple', rank: 13},
-  {name: 'pineaple', rank: 3},
-  ];
-  products: Product [] = this.productsForFilter;
-  
+  products: Product[];
+  constructor(productRepository: ProductService) {
+    productRepository.getProducts().subscribe(response => {
+      this.products = Object.values(response);
+    });
+   }
   filterCollection(text) {
-    this.products = this.productsForFilter.filter(p => p.name.includes(text.value));
+    this.products = this.productsForFilter$.filter(p => p.name.includes(text.value));
   }
 }
