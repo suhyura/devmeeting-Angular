@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-interface Product{
-  name: string;
-}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,8 +8,9 @@ interface Product{
 
 export class AppComponent {
   title = 'devmeetings-angular';
-  products: Product[]=[
-    {name:'apple'},
-    {name:'paple'},
-    {name:'maple'}];
+  
+products: Product[]=[
+  {name:'apple',rank:5},
+  {name:'paple'},
+  {name:'maple'}];
 }

@@ -1,9 +1,4 @@
 
 <div style="text-align:center">
-
-  <div *ngFor="let product of products">
-    <ul>
-      <li>Product name:{{product.name}}</li>
-    </ul>
-  </div>
-  </div>
+    <product-list [products] = "products"></product-list>
+</div>
